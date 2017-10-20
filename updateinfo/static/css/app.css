@@ -1,0 +1,65 @@
+body {
+    background: #f3f3f4;
+}
+.grid-container {
+    margin-top: 20px;
+}
+
+.tabs-title>a[aria-selected=true],
+.accordion-title:focus {
+    background: #68b828;
+    color: #fff;
+}
+.tabs-title>a,
+.accordion-title,
+.training-callout > a {
+    color: #0e62c7
+}
+.top-bar, ul.menu {
+    background-color: #68b828;
+}
+.menu li.menu-text {
+    color: #fff;
+}
+.tabs-content {
+    border: none;
+    background: #f3f3f4;
+}
+
+.training-callout{
+    border-right: 3px solid #68b828;
+    -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.17);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.17);
+}
+.training-callout:hover {
+    border: 1px solid #68b828;
+    -webkit-box-shadow: 0 rgba(0, 0, 0, 0.17);
+    box-shadow: 0 rgba(0, 0, 0, 0.17);
+}
+.callout {
+    position: relative;
+    margin: 0 0 1rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: white;
+    color: #0a0a0a;
+}
+.site {
+    float: right;
+    padding-bottom: 2px;
+    font-size: 0.7em;
+}
+
+.pagination {
+    padding-top: 10px;
+}
+.pagination > .current {
+    background-color: #68b828;
+}
+.date {
+    float: left;
+    font-size: 0.7em;
+}
+.label {
+    background-color: #68b828;
+}

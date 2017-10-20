@@ -1,0 +1,31 @@
+<ul class="pagination" role="navigation" aria-label="Pagination">
+
+{% if news_items.has_previous %}
+    <li class="pagination-previous"><a href="?page={{ news_items.previous_page_number }}"><i aria-hidden="true"></i>Previous</a> <span class="show-for-sr">page</span></li>
+{% else %}
+    <li class="pagination-previous disabled"><span><i class="pagination-previous" aria-hidden="true"></i></span> Previous</li>
+{% endif %}
+
+{% if news_items.number|add:'-4' > 1 %}
+    <li><a href="?page={{ news_items.number|add:'-5' }}">&hellip;</a></li>
+{% endif %}
+
+{% for i in news_items.paginator.page_range %}
+    {% if news_items.number == i %}
+        <li class="active current"><span>{{ i }} <span class="show-for-sr">(current)</span></span></li>
+    {% elif i > news_items.number|add:'-5' and i < news_items.number|add:'5' %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+    {% endif %}
+{% endfor %}
+
+{% if news_items.paginator.num_pages > news_items.number|add:'4' %}
+    <li><a href="?page={{ news_items.number|add:'5' }}">&hellip;</a></li>
+{% endif %}
+
+{% if news_items.has_next %}
+    <li class="pagination-next"><a href="?page={{ news_items.next_page_number }}"><i aria-hidden="true"></i>Next </a></li>
+{% else %}
+    <li class="pagination-next disabled"><span><i aria-hidden="true"></i></span>Next </li>
+{% endif %}
+
+</ul>

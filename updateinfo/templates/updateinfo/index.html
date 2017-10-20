@@ -1,0 +1,71 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>infosupdate</title>
+    <link rel="stylesheet" href="{% static "css/foundation.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/app.css" %}">
+  </head>
+  <body>
+    <nav>
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li class="menu-text">infosupdate</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="grid-container">
+      <div class="grid-x collapse">
+        <div class="medium-3 cell">
+          <ul class="vertical tabs" data-tabs id="example-tabs">
+            <li class="tabs-title is-active"><a href="{% url 'news_list' %}" aria-selected="true">All</a></li>
+            {% for site in sites_list %}
+              <li class="tabs-title"><a href="{% url 'news_list_based_site' site.name %}">{{ site.name }}</a></li>
+            {% endfor %}
+            
+          </ul>
+        </div>
+        <div class="medium-6 columns">
+          <div class="tabs-content" data-tabs-content="example-tabs">
+            <div class="tabs-panel is-active" id="panel1v">
+              {% for item in news_items %}
+                <div class="callout training-callout">
+                  <span class="date">{{ item.date }}</span>
+                  <span class="site label">{{ item.site }}</span>
+                  <h5><a href="{{ item.url }}">{{ item.title }}</a></h5>
+              </div>
+              {% endfor %}
+              
+              {% include 'updateinfo/pagination.html' %}
+              
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <script src="{% static "js/vendor/jquery.js" %}"></script>
+    <script>
+    $(document).ready(
+        function(){
+          $("#example-tabs li a").click(function(event) {
+          $("#example-tabs li a").removeAttr("aria-selected");
+          $(this).attr("aria-selected", "true")
+     
+    });
+        });
+    
+
+    </script>
+    <script src="{% static "js/vendor/what-input.js" %}"></script>
+    <script src="{% static "js/vendor/foundation.js" %}"></script>
+    <script src="{% static "js/app.js" %}"></script>
+  </body>
+</html>
