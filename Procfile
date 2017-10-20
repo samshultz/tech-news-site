@@ -1,2 +1,2 @@
 web: gunicorn infoupdate.wsgi
-clock: python clock.py
+clock: python updateinfo/spiders/clock.py
