@@ -18,7 +18,7 @@ class HackerNewsSpider(scrapy.Spider):
                 'title': header.css("h2.post-title a::text").extract_first(),
                 'date': header.css("span.updated::text").extract_first()
             }
-            self.cur.execute("INSERT INTO updateinfo_newsitem (url, title, site_id, date) VALUES(%s, %s, %s, %s);", [a['link'], a['title'], 3, a['date'].split("T")[0]])
+            self.cur.execute("INSERT INTO updateinfo_newsitem (url, title, site_id, date) VALUES(%s, %s, %s, %s);", [a['link'], a['title'], 7, a['date'].split("T")[0]])
             
             self.conn.commit()
         self.cur.execute("""DELETE FROM updateinfo_newsitem a USING (

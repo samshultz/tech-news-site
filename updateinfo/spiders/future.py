@@ -27,7 +27,7 @@ class BBCFutureSpider(scrapy.Spider):
             year, month, day = found[:4], found[4:6], found[6:]
             date = '-'.join([year, month, day])
             # NewsItem.objects.create(url=a['link'], title=a['title'], site="BBCFuture", date=date)
-            self.cur.execute("INSERT INTO updateinfo_newsitem (url, title, site_id, date) VALUES(%s, %s, %s, %s);", [a['link'], a['title'], 1, date])
+            self.cur.execute("INSERT INTO updateinfo_newsitem (url, title, site_id, date) VALUES(%s, %s, %s, %s);", [a['link'], a['title'], 5, date])
             
             self.conn.commit()            
         self.cur.execute("""DELETE FROM updateinfo_newsitem a USING (
