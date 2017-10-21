@@ -23,7 +23,7 @@ class VanguardSpider(scrapy.Spider):
             found = regex.search(post_detail['link'])
             found = found.group()
             year, month = found.split("/")
-            date = '-'.join([year, month])
+            date = '-'.join([year, month, "21"])
             title = post_detail['title']
             self.cur.execute("INSERT INTO updateinfo_newsitem (url, title, site_id, date) VALUES(%s, %s, %s, %s);", [post_detail['link'], post_detail['title'], 8, date])
                     
