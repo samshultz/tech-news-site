@@ -1,0 +1,28 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+apscheduler = "==3.3.1"
+attrs = "==17.2.0"
+automat = "==0.6.0"
+constantly = "==15.1.0"
+dj-database-url = "==0.4.1"
+django = "==1.11.1"
+gunicorn = "==19.6.0"
+incremental = "==17.5.0"
+"psycopg2" = "==2.6.2"
+pytz = "==2017.2"
+scrapy = "==1.4.0"
+twisted = "==17.1.0"
+tzlocal = "==1.4"
+whitenoise = "==3.2"
+"zope.interface" = "==4.4.3"
+rq = "*"
+
+
+[dev-packages]
